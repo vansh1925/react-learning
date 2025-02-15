@@ -1,0 +1,23 @@
+react ek virtual dom create krta hai ie jo normal browser vo har change par pure tree ko change krta hai but whereas virtual dom har baar apni tree 
+ko compare krta hai purane virtul dom seab react main vituual dom bhi use nhi hota ab react fibre use hota which is an optimised algo
+//more concised and sorted 
+1️⃣ In a traditional browser DOM, whenever an update occurs, the entire UI is re-rendered, which is slow and inefficient.
+2️⃣ React uses a Virtual DOM, which is a lightweight copy of the real DOM.
+3️⃣ When a state or prop changes:
+    React creates a new Virtual DOM tree.
+    It compares this new tree with the previous Virtual DOM (using a process called "diffing").
+    Only the changed elements are updated in the real DOM (reconciliation).
+The browser removes the whole DOM and then recrates the whole DOM with the updated values this is called reload.
+
+fibre->
+✅ Asynchronous rendering → React can pause, resume, or prioritize updates instead of blocking the UI.
+✅ Concurrent mode → React can break tasks into chunks, preventing UI freezes.
+if ek change hua ab ek aur and ab teesra to rather than har ek change ko krna we can change all three at once so yeh algo yhi kaam krta hai 
+ki vo unhe pause kr deta hai prioritize krta hai etc.
+
+//Reconciliation is the algo behind what popularly known as the Virtual-DOM.
+✔️ First, React compares prevVDOM with newVDOM.
+✔️ Then, React updates only the necessary parts of the real DOM.
+✔️ React does NOT compare changes with the real DOM—it just applies them.
+
+yeh sab createRoot se hota hai vo cotrol aur create krta hai and og dom main necessary changes ko add krta hai
