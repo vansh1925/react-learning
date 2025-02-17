@@ -1,0 +1,18 @@
+useCallback ka use hota hai function ko memoize karne ke liye, taaki baar-baar render hone par naye function create na ho aur unnecessary re-renders na ho. Yeh tab useful hota hai jab tum koi function child component ko prop ke roop mein bhej rahe ho.
+
+useEffect ka use hota hai side effects ko control karne ke liye.** Jab koi dependency (state ya prop) change hoti hai, tabhi yeh chale**. Isse unnecessary executions nahi hote aur code optimized rehta hai.
+
+1️⃣ useEffect Dependency Array:
+🔹 Jab bhi array khali [] hota hai, effect sirf ek baar chalega (mount hone pe).
+🔹 Agar kisi variable ko dependencies array [count] main daal diya, toh jab bhi count update hoga, effect phir se chalega.
+🔹 Agar koi dependency nahi di (matlab useEffect(() => {...}) bina [] ke), toh har render pe chalega (jo optimize nahi hai).
+
+2️⃣ useCallback Dependency Array:
+🔹 Agar array khali [] hai, toh function sirf ek baar create hoga aur baar-baar re-render pe dobara create nahi hoga.
+🔹 Agar [count] diya hai, toh sirf jab count change hoga tab naya function create hoga.
+🔹 Agar kuch bhi nahi diya, toh har render pe function naya banega, jo unnecessary renders cause karega.
+
+useRef ek mutable reference deta hai jo re-render nahi karta.
+Directly kisi DOM element ko access karne ke liye use hota hai (like input fields, video players, etc.).
+Copy button ke click par input field select aur clipboard pe copy ho raha bina re-render ke.
+Agar state use karte toh unnecessary re-render hota jo avoid kiya useRef se.
