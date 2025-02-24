@@ -26,17 +26,16 @@ ${currency} ko backticks (`) me likhna hota hai
 */
 import { useState, useEffect } from "react";
 
-function useCurrencyInfo(currency) {
-    const [data, setData] = useState({}); // Default empty object
-
+function useCurrencyInfo(currency = "USD") {  
+    const [data, setData] = useState({});
+  
     useEffect(() => {
-        fetch(`https://api.frankfurter.app/latest?from=${currency}`)
-            .then((res) => res.json())
-            .then((res) => setData(res.rates)); // `rates` ko store karna hai
-
-    }, [currency]); // Jab bhi currency change ho, tabhi API call ho
-
-    return data; // Exchange rates return karega
-}
+      fetch(`https://api.frankfurter.app/latest?from=${currency}`)
+        .then((res) => res.json())
+        .then((res) => setData(res.rates));
+    }, [currency]);
+  
+    return data;
+  }
 
 export default useCurrencyInfo;

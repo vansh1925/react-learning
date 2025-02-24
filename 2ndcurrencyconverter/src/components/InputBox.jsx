@@ -9,6 +9,7 @@ function InputBox({
     selectedCurrency, 
 }) {
     const uniqueId = useId();
+    console.log(selectedCurrency,currencylist)
 
     return (
         <div>
@@ -27,7 +28,11 @@ function InputBox({
                 <select
                     name="currencies"
                     value={selectedCurrency} // Yeh selected value rakhega
-                    onChange={(e) => oncurrencychange(e.target.value)}
+                    onChange={(e) => {
+                        
+                        console.log("Currency changed to:", e.target.value);
+
+                        oncurrencychange(String(e.target.value))}}
                 >
                     {currencylist.map((currency) => (
                         <option key={currency} value={currency}>
