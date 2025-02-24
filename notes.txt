@@ -1,0 +1,6 @@
+1)  React Router ek library hai jo React apps me client-side navigation handle karne ke liye use hoti hai.
+    Matlab bina page reload kiye ek page se doosre page pe smoothly navigate kar sakte hain.
+
+    Agar hum normally HTML aur JavaScript use karein, toh jab bhi hum kisi naye page pe jaate hain toh poora page reload hota hai. 
+    React ek Single Page Application (SPA) hai, toh yeh problem solve karne ke liye React Router use hota hai.
+
