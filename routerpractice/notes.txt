@@ -1,0 +1,34 @@
+1)  React Router ek library hai jo React apps me client-side navigation handle karne ke liye use hoti hai.
+    Matlab bina page reload kiye ek page se doosre page pe smoothly navigate kar sakte hain.
+
+    Agar hum normally HTML aur JavaScript use karein, toh jab bhi hum kisi naye page pe jaate hain toh poora page reload hota hai. 
+    React ek Single Page Application (SPA) hai, toh yeh problem solve karne ke liye React Router use hota hai.
+
+2)exaple mujhe home page par jaana hai to like www.code.com/ yeh home now about page ke loye www.code.com/about ya www.code .com/details
+to inko hi url/plath ya route kehate hain 
+inke liye hum use krte hain createBrowserRouter jo ek array leti hai of all the routes aur har ek route {} is prakar ka hoga aur {} main ek path 
+hoga ki base url to same rahega baaki uske aage/ ka matlab kya /about ka matlab kya and etc
+
+3)dynamic routing
+now useParams  ->kbhi kabhi hame dekha hai ki url ke baad id=4394 ya aisa krke kuch hota hai if = krke hai to use kqury parametere kehate hain 
+jahan id is key aur agar/krke seedha ho to use kehate hai route parameter
+*** important hai ki jo hum apne path main denge jaise ki /:id to /: to represemt lr rha ki param hao but jo : iske baad name hai vo
+same hi rehna chahiye ape component ke name main matlab const {id}=useParams()
+=>React Router me agar tum dynamic routes use kar rahe ho, toh useParams() kaam aata hai URL se values nikalne ke liye.
+
+Matlab agar tum URL ke andar kisi value ko change karna chahte ho (jaise kisi user ka ID ya product ka naam),
+ toh useParams usko catch karne me madad karta hai.
+
+4)Agar tu button click pe ya form submit hone ke baad page change karna chahta hai, toh useNavigate() use kar.
+Agar tu Navbar ya Sidebar me links banana chahta hai, toh Link/NavLink use kar
+
+5)nested routing basically is when we are at dashboard and ab dashboard ke andar detsils to vahan se mujhe ek test ke section main jaana
+hai to /dashboard/test ya /dashboard/course aise krke
+and for this we use children matlab if dashboard ke andar hai to path element tho tha hi ab agla children:[{},{}] aise kr ke
+
+Nested Routes me child ka path bina / likhna hota hai.
+Agar / laga diya toh wo root se count hoga.
+Parent component me <Outlet /> use karna zaroori hai taaki child components show ho sakein.
+
+6)now if main nested main kuch galat daaldun like videos to error 404 page notfound ka error apne hidaab se dene ke liye 
+we use path:'*' matlab upar valo ko chorke baaki saare page 
