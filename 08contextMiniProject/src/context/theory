@@ -1,0 +1,39 @@
+🚀 Context API Kya Hai?
+Jab kisi React app mein deeply nested components hote hain, toh props drilling ka problem aata hai. Matlab agar koi state ya data parent se kisi bohot deep child tak bhejna ho, toh har intermediate component ko useless props forward karne padte hain. Yeh context API is problem ko solve karta hai.
+
+ex->
+maine home page banaya jahan top bar ai then ek bottom bar ab bottom page pe user ka data hai like name now mujhe ab us bottom main right left bar hai usmain left bar main main aise hi division hai aur yeh sab components hi to hai means har ek section is a component to if mujhe 
+kisi ek left ke bottom component main vo name chahie to mi har component main prop paas karunga to rather thn doing all this stuff i can make a global variable kind of thing jhan main yeh data daal dunga to har koi compo vahan se data pick kr lega this is the state mnagement way aur vo global var hi to context hai.
+
+🎯 Context API Kyun Zaroori Hai?
+Props Drilling Avoid Karne Ke Liye – Har baar props pass karne ki zaroorat nahi hoti.
+Global State Manage Karne Ke Liye – Multiple components same data use kar sakte hain bina unnecessary re-renders ke.
+Alternative to Redux for Small Projects – Redux heavy ho sakta hai, lekin chhoti apps mein Context API lightweight aur effective hai.
+
+
+🛠 Kaise Kaam Karta Hai?
+React mein 3 steps hote hain Context API use karne ke:
+
+1)1️⃣ Context Banana (Create Context)
+Sabse pehle ek context create karna padta hai:(see context.js)
+
+2)2️⃣ Provider (Data Supply Karna)
+Provider ka kaam hota hai context ko wrap karna aur values provide karna, jo kisi bhi child component mein available hoti hain.(seeUserContextProvider.jsx)
+
+3)3️⃣ Consumer (Data Use Karna)
+Context ka data access karne ke liye useContext hook use karte hain:(see Profile)
+4)Final Step: Wrap Everything with Provider
+App.js mein Provider ko wrap karna hota hai taki pura app uska data access kar sake.
+
+->******
+context.js (UserContext) | createContext() se ek global state banata hai, jo kisi bhi component me use ho sakti hai.
+UserContextProvider.jsx	 | Provider ka kaam karta hai. Yeh UserContext.Provider ke andar state (user, setUser) provide karta hai jo sab components ko milega.
+useContext(UserContext)	 | Provider se data access karne ke liye hota hai.
+App.js	                 | UserContextProvider ko wrap karega taki pure app me context ka data available rahe.
+Login.jsx                | (ya koi bhi consumer component)	useContext(UserContext) se context ka data lega aur use karega.
+
+✅ Provider ka kaam hai App.js me wrapping karna, na ki useContext se access hona.
+🔹 Isiliye Login.jsx me UserContextProvider ki zaroorat nahi, sirf UserContext chahiye.
+✅ Ab jo bhi useContext(UserContext) use karega, usko UserContextProvider se data milega.
+✅ Provider ko App.js me hi import karna chahiye, har jagah nahi.
+data distributr krna hai kaam
