@@ -92,5 +92,38 @@ export class StorageService {
 
     }
     //file upload service 
+    async uploadFile(file){
+        try{
+            return await this.storage.createFile(
+                config.appwriteBucketId,
+                ID.unique(),
+                file
+            );
+
+        }catch(error){
+            console.log(error);
+            return null;
+        }
+    }
+    async deleteFile(fileId){
+        try{
+            return await this.storage.deleteFile(
+                config.appwriteBucketId,
+                fileId
+            )
+            return true;
+        }catch(error){
+            console.log(error);
+            return null;
+        }
+    }
+    //no need for async as it is too fast and returns quickly
+    getFile(fileId){
+        
+        return this.storage.getFilePreview(
+            config.appwriteBucketId,
+            fileId
+        );
+    }
     
 }
